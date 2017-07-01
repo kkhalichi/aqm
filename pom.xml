@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.khalichi</groupId>
+    <artifactId>atcq-parent</artifactId>
+    <version>${atcq.version}</version>
+    <packaging>pom</packaging>
+
+    <name>atcq-parent</name>
+    <description>Air Traffic Control Priority Queue</description>
+    <url>https://github.com/kkhalichi/atcq</url>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.5.4.RELEASE</version>
+    </parent>
+
+    <modules>
+        <module>atcq-service</module>
+    </modules>
+
+    <profiles>
+        <profile>
+            <id>local_dev</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <app.log.level>DEBUG</app.log.level>
+                <root.log.level>DEBUG</root.log.level>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <app.log.level>INFO</app.log.level>
+                <root.log.level>INFO</root.log.level>
+            </properties>
+        </profile>
+    </profiles>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <atcq.version>1.0-SNAPSHOT</atcq.version>
+        <cxf.version>3.2.0-SNAPSHOT</cxf.version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/libs-snapshot</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.google.code.maven-replacer-plugin</groupId>
+                <artifactId>replacer</artifactId>
+                <version>1.5.3</version>
+                <executions>
+                    <execution>
+                        <id>replace-log4j-tokens</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>replace</goal>
+                        </goals>
+                        <configuration>
+                            <basedir>${project.basedir}</basedir>
+                            <includes>
+                                <include>/**/log4j.xml</include>
+                            </includes>
+                            <replacements>
+                                <replacement>
+                                    <token>APP_LOG_LEVEL</token>
+                                    <value>${app.log.level}</value>
+                                </replacement>
+                                <replacement>
+                                    <token>ROOT_LOG_LEVEL</token>
+                                    <value>${root.log.level}</value>
+                                </replacement>
+                            </replacements>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

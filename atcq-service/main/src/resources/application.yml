@@ -1,0 +1,31 @@
+spring:
+    application:
+        name: atcq
+
+server:
+    port: ${SERVICE_PORT:8000}
+    context-path: /${CONTEXT_PATH:}
+
+cxf:
+    servlet:
+        init:
+            service-list-path: /info
+    jaxrs:
+        component-scan: true
+
+logging:
+    level:
+        com:
+            khalichi: debug
+
+
+swagger:
+    feature:
+        base-path: /services
+        title: ATC Priority Queue
+        description: https://github.com/kkhalichi/atcq
+        contact: Keivan Khalichi
+        license: Copyright (c) 2017 Khalichi.com
+        license-url: mailto:keivan@khalichi.com
+        version: 1.0-SNAPSHOT
+        pretty-print: true
