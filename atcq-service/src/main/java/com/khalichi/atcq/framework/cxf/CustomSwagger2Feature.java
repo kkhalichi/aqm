@@ -1,5 +1,6 @@
 package com.khalichi.atcq.framework.cxf;
 
+import com.khalichi.atcq.framework.swagger.Swagger2Properties;
 import org.apache.cxf.Bus;
 import org.apache.cxf.endpoint.Server;
 import org.apache.cxf.jaxrs.swagger.Swagger2Feature;

@@ -1,4 +1,4 @@
-package com.khalichi.atcq.framework.cxf;
+package com.khalichi.atcq.framework.swagger;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
