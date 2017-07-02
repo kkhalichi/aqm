@@ -1,0 +1,58 @@
+[
+    {
+        "type": "PASSENGER",
+        "size": "SMALL"
+    },
+    {
+        "type": "CARGO",
+        "size": "SMALL"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "LARGE"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "SMALL"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "LARGE"
+    },
+    {
+        "type": "CARGO",
+        "size": "LARGE"
+    },
+    {
+        "type": "CARGO",
+        "size": "SMALL"
+    },
+    {
+        "type": "CARGO",
+        "size": "LARGE"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "SMALL"
+    },
+    {
+        "type": "CARGO",
+        "size": "LARGE"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "LARGE"
+    },
+    {
+        "type": "CARGO",
+        "size": "SMALL"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "SMALL"
+    },
+    {
+        "type": "PASSENGER",
+        "size": "LARGE"
+    }
+]
