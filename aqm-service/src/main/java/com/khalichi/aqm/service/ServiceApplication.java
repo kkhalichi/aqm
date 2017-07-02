@@ -1,4 +1,4 @@
-package com.khalichi.atcq.service;
+package com.khalichi.aqm.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 
 /**
- * Main class for this Microservice API.
+ * Main class for the AQM Microservices API.
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */

@@ -1,9 +1,9 @@
 spring:
     application:
-        name: atcq
+        name: AQM
 
 server:
-    port: ${SERVICE_PORT:8000}
+    port: ${SERVICE_PORT:8008}
     context-path: /${CONTEXT_PATH:}
 
 cxf:
@@ -18,11 +18,10 @@ logging:
         com:
             khalichi: debug
 
-
 swagger:
     feature:
         base-path: /services
-        title: ATC Priority Queue
+        title: Air Traffic Control (ATC) Queue Management (AQM)
         description: https://github.com/kkhalichi/atcq
         contact: Keivan Khalichi
         license: Copyright (c) 2017 Khalichi.com

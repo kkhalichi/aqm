@@ -1,11 +1,11 @@
-package com.khalichi.atcq.manager;
+package com.khalichi.aqm.manager;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.PriorityBlockingQueue;
 import javax.validation.constraints.NotNull;
-import com.khalichi.atcq.data.Aircraft;
+import com.khalichi.aqm.data.Aircraft;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;

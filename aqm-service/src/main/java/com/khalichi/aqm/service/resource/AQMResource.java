@@ -30,7 +30,7 @@ import static com.khalichi.aqm.data.Aircraft.AircraftType;
 @Path("/aqm")
 @Produces(MediaType.APPLICATION_JSON)
 @Api(description="APIs for ATC Queue Processor")
-public interface ATCQueueResource {
+public interface AQMResource {
 
     /** @see AQMProcessor#boot() */
     @POST
@@ -54,7 +54,7 @@ public interface ATCQueueResource {
     @Produces(MediaType.TEXT_PLAIN)
     @ApiOperation(value = "Enqueue aircrafts into the system, in bulk.")
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "aircrafts", value = "List of Aircrafts", dataType = "java.util.List", required = true, paramType = "body")
+            @ApiImplicitParam(name = "aircraftList", value = "List of Aircraft", dataType = "java.util.List", required = true, paramType = "body")
     })
     Response enqueue(@NotNull List<Aircraft> theAircraftList);
 

@@ -3,20 +3,20 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>atcq-service</artifactId>
+    <artifactId>aqm-service</artifactId>
     <packaging>jar</packaging>
 
-    <name>atcq-service</name>
+    <name>aqm-service</name>
     <description>ATCQ Services</description>
 
     <parent>
         <groupId>com.khalichi</groupId>
-        <artifactId>atcq-parent</artifactId>
-        <version>${atcq.version}</version>
+        <artifactId>aqm-parent</artifactId>
+        <version>${aqm.version}</version>
     </parent>
 
     <properties>
-        <start-class>com.khalichi.atcq.service.ServiceApplication</start-class>
+        <start-class>com.khalichi.aqm.service.ServiceApplication</start-class>
     </properties>
 
     <dependencies>

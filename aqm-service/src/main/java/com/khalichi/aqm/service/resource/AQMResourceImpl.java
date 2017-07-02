@@ -14,13 +14,13 @@ import static com.khalichi.aqm.data.Aircraft.AircraftSize;
 import static com.khalichi.aqm.data.Aircraft.AircraftType;
 
 /**
- * Implementation of {@link ATCQueueResource}.  Initializes Swagger API documentation using a custom CXF feature.
+ * Implementation of {@link AQMResource}.  Initializes Swagger API documentation using a custom CXF feature.
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */
 @Service("partnerProxy")
 @Features(classes = CustomSwagger2Feature.class)
-public class ATCQueueResourceImpl implements ATCQueueResource {
+public class AQMResourceImpl implements AQMResource {
 
     @Autowired
     private AQMProcessor aqmProcessor;

@@ -1,4 +1,4 @@
-package com.khalichi.atcq.data;
+package com.khalichi.aqm.data;
 
 import java.io.Serializable;
 import java.util.Comparator;

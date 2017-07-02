@@ -1,8 +1,9 @@
-package com.khalichi.atcq.framework.swagger;
+package com.khalichi.aqm.framework.swagger;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
+ * Enables configuration of Swagger 2 properties in application.properties/yaml.
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */
