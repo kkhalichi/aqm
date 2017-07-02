@@ -1,19 +1,20 @@
-package com.khalichi.atcq.service.resource;
+package com.khalichi.aqm.service.resource;
 
 import java.util.List;
-import com.khalichi.atcq.data.Aircraft;
-import com.khalichi.atcq.framework.cxf.CustomSwagger2Feature;
+import com.khalichi.aqm.data.Aircraft;
+import com.khalichi.aqm.framework.cxf.CustomSwagger2Feature;
 import javax.ws.rs.core.Response;
-import com.khalichi.atcq.manager.ATCQueueManager;
+import com.khalichi.aqm.manager.AQMProcessor;
 import org.apache.cxf.feature.Features;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
-import static com.khalichi.atcq.data.Aircraft.AircraftSize;
-import static com.khalichi.atcq.data.Aircraft.AircraftType;
+import static com.khalichi.aqm.data.Aircraft.AircraftSize;
+import static com.khalichi.aqm.data.Aircraft.AircraftType;
 
 /**
+ * Implementation of {@link ATCQueueResource}.  Initializes Swagger API documentation using a custom CXF feature.
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */
@@ -22,7 +23,7 @@ import static com.khalichi.atcq.data.Aircraft.AircraftType;
 public class ATCQueueResourceImpl implements ATCQueueResource {
 
     @Autowired
-    private ATCQueueManager manager;
+    private AQMProcessor aqmProcessor;
 
     /** {@inheritDoc} */
     @Override
@@ -30,7 +31,7 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         Response aReturnValue;
 
         try {
-            this.manager.boot();
+            this.aqmProcessor.boot();
             aReturnValue = Response.ok("System boot complete.").build();
 
         }
@@ -48,7 +49,7 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         if ((theAircraftType != null) && (theAircraftSize != null)) {
             try {
                 final Aircraft anAircraft = new Aircraft(theAircraftType, theAircraftSize);
-                this.manager.enqueue(anAircraft);
+                this.aqmProcessor.enqueue(anAircraft);
                 aReturnValue = Response.ok(
                                    String.format("Enqueue of %s %s aircraft (%s) complete.", theAircraftSize, theAircraftType, anAircraft.getUuid()))
                                .build();
@@ -73,7 +74,7 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         }
         else {
             try {
-                this.manager.enqueue(theAircraftList);
+                this.aqmProcessor.enqueue(theAircraftList);
                 aReturnValue = Response.ok("Bulk enqueue of aircraft is complete.").build();
             }
             catch (Exception e) {
@@ -89,7 +90,7 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         Response aReturnValue;
 
         try {
-            final Aircraft anAircraft = this.manager.dequeue();
+            final Aircraft anAircraft = this.aqmProcessor.dequeue();
             if (anAircraft == null) {
                 aReturnValue = Response.ok("There are no aircraft in the system.").build();
             }
@@ -111,7 +112,7 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         Response aReturnValue;
 
         try {
-            aReturnValue = Response.ok(this.manager.dump()).build();
+            aReturnValue = Response.ok(this.aqmProcessor.dump()).build();
         }
         catch (Exception e) {
             aReturnValue = Response.notModified(e.getMessage()).build();
@@ -119,12 +120,13 @@ public class ATCQueueResourceImpl implements ATCQueueResource {
         return aReturnValue;
     }
 
+    /** {@inheritDoc} */
     @Override
     public Response sortDump() {
         Response aReturnValue;
 
         try {
-            aReturnValue = Response.ok(this.manager.sortDump()).build();
+            aReturnValue = Response.ok(this.aqmProcessor.sortDump()).build();
         }
         catch (Exception e) {
             aReturnValue = Response.notModified(e.getMessage()).build();
