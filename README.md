@@ -24,7 +24,7 @@ or for faster boot time
     java -jar aqm-service/target/aqm-service-1.0-SNAPSHOT.jar
     
 ## REST Endpoints
-The embedded [Swagger UI](http://localhost:8008/services/api-docs?url=http://localhost:8008/services/swagger.json) (an SPA web applications) can be used to interact with the APIs.
+The embedded [Swagger UI](http://localhost:8008/services/api-docs?url=http://localhost:8008/services/swagger.json) (an SPA web application) can be used to interact with the APIs.
 
 ### Notes
 * System must be booted (/aqm/boot operation) before allowing other API operations.
