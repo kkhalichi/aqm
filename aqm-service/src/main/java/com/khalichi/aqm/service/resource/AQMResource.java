@@ -42,7 +42,7 @@ public interface AQMResource {
     /** @see AQMProcessor#enqueue(Aircraft) */
     @POST
     @Path("/enq")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Enqueue an aircraft into the system.")
     Response enqueue(@NotNull @ApiParam(name = "type", value = "Aircraft Type", type = "enum") @QueryParam("type") AircraftType theAircraftType,
                      @NotNull @ApiParam(name = "size", value = "Aircraft Size", type = "enum") @QueryParam("size") AircraftSize theAircraftSize);
@@ -61,7 +61,7 @@ public interface AQMResource {
     /** @see AQMProcessor#dequeue() */
     @DELETE
     @Path("/deq")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Dequeue an aircraft from the system.")
     Response dequeue();
 

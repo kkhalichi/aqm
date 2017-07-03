@@ -18,7 +18,7 @@ import static com.khalichi.aqm.data.Aircraft.AircraftType;
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */
-@Service("partnerProxy")
+@Service("aqmResource")
 @Features(classes = CustomSwagger2Feature.class)
 public class AQMResourceImpl implements AQMResource {
 
@@ -46,20 +46,22 @@ public class AQMResourceImpl implements AQMResource {
     public Response enqueue(final AircraftType theAircraftType, final AircraftSize theAircraftSize) {
         Response aReturnValue;
 
-        if ((theAircraftType != null) && (theAircraftSize != null)) {
+        if ((theAircraftType == null) || (theAircraftSize == null)) {
+            aReturnValue = Response.notModified("One or both parameters are null.").build();
+        }
+        else {
             try {
                 final Aircraft anAircraft = new Aircraft(theAircraftType, theAircraftSize);
-                this.aqmProcessor.enqueue(anAircraft);
-                aReturnValue = Response.ok(
-                                   String.format("Enqueue of %s %s aircraft (%s) complete.", theAircraftSize, theAircraftType, anAircraft.getUuid()))
-                               .build();
+                if (this.aqmProcessor.enqueue(anAircraft)) {
+                    aReturnValue = Response.ok(anAircraft).build();
+                }
+                else {
+                    aReturnValue = Response.notModified(String.format("Enqueue of %s %s aircraft failed.", theAircraftSize, theAircraftType)).build();
+                }
             }
             catch (Exception e) {
                 aReturnValue = Response.notModified(e.getMessage()).build();
             }
-        }
-        else {
-            aReturnValue = Response.notModified("One or both parameters are null.").build();
         }
         return aReturnValue;
     }
@@ -95,9 +97,7 @@ public class AQMResourceImpl implements AQMResource {
                 aReturnValue = Response.ok("There are no aircraft in the system.").build();
             }
             else {
-                aReturnValue = Response.ok(
-                                   String.format("%s %s aircraft (%s) removed.", anAircraft.getSize(), anAircraft.getType(), anAircraft.getUuid())
-                               ).build();
+                aReturnValue = Response.ok(anAircraft).build();
             }
         }
         catch (Exception e) {

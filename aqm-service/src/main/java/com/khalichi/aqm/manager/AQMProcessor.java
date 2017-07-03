@@ -24,7 +24,7 @@ public class AQMProcessor {
     /** Initialize size of underlying data structure */
     private static final int SYSTEM_INITIAL_SIZE = 20;
 
-    /** Core data structure; a non-blocking priority queue */
+    /** Core data structure; a thread-safe priority queue */
     private PriorityBlockingQueue<Aircraft> aircraftQueue;
     /** Indicates whether or not system is booted */
     private boolean systemReady = false;

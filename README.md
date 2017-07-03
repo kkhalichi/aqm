@@ -29,8 +29,8 @@ The embedded [Swagger UI](http://localhost:8008/services/api-docs?url=http://loc
 ### Notes
 * System must be booted (/boot operation) before allowing other API operations.
 * The 'bulk' POST operation accepts JSON that is in the format of the example file 'data.json'.
-* Swagger UI's interface for enumerations a bit buggy, requiring values from drop list changed at least once before allowing to execute a REST call.  This is
-only required once per SPA load.
+* Swagger UI's interface for enumerations has a bug, wherein it requires values from all enumeration drop lists changed at least once before allowing 
+execution a REST call.  This is only required once per SPA (re)load.
 
 # Architecture
 
