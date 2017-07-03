@@ -27,10 +27,10 @@ or for faster boot time
 The embedded [Swagger UI](http://localhost:8008/services/api-docs?url=http://localhost:8008/services/swagger.json) (an SPA web applications) can be used to interact with the APIs.
 
 ### Notes
-* System must be booted (/boot operation) before allowing other API operations.
-* The 'bulk' POST operation accepts JSON that is in the format of the example file 'data.json'.
-* Swagger UI's interface for enumerations has a bug, wherein it requires values from all enumeration drop lists changed at least once before allowing 
-execution a REST call.  This is only required once per SPA (re)load.
+* System must be booted (/aqm/boot operation) before allowing other API operations.
+* The 'bulk' POST operation accepts JSON that is in the format of the sample 'data.json' file.
+* Swagger UI's interface for enumerations has a bug, wherein it requires values from enumeration drop lists to be changed at least once before allowing 
+execution of the associated REST call.  This is only required once per SPA (re)load.
 
 # Architecture
 
