@@ -29,6 +29,7 @@ The embedded [Swagger UI](http://localhost:8008/services/api-docs?url=http://loc
 ### Notes
 * System must be booted (/aqm/boot operation) before allowing other API operations.
 * The 'bulk' POST operation accepts JSON that is in the format of the sample 'data.json' file.
+Also, when using Swagger UI to interact with this operation, only populate the 'aircraftList' text field.
 * Swagger UI's interface for enumerations has a bug, wherein it requires values from enumeration drop lists to be changed at least once before allowing 
 execution of the associated REST call.  This is only required once per SPA (re)load.
 
