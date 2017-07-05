@@ -26,7 +26,7 @@ swagger:
     feature:
         base-path: /services
         title: Air Traffic Control (ATC) Queue Management (AQM)
-        description: https://github.com/kkhalichi/atcq
+        description: https://github.com/kkhalichi/aqm
         contact: Keivan Khalichi
         license: Copyright (c) 2017 Khalichi.com
         license-url: mailto:keivan@khalichi.com
