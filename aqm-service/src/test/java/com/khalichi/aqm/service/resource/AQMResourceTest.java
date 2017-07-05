@@ -8,10 +8,8 @@ import static com.khalichi.aqm.data.Aircraft.AircraftType;
 import com.khalichi.aqm.service.ServiceApplication;
 import org.apache.cxf.jaxrs.client.spring.EnableJaxRsWebClient;
 import org.junit.Before;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -28,7 +26,6 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = ServiceApplication.class)
 @EnableJaxRsWebClient
-@FixMethodOrder(MethodSorters.JVM)
 public class AQMResourceTest {
 
     /** JAX-RS client proxy */
