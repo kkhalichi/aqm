@@ -54,7 +54,7 @@
     <repositories>
         <repository>
             <id>apache</id>
-            <url>http://apache-snapshots</url>
+            <url>http://repository.apache.org/snapshots</url>
             <releases>
                 <enabled>true</enabled>
                 <updatePolicy>always</updatePolicy>
