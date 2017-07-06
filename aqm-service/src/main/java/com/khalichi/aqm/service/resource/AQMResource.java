@@ -12,7 +12,7 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.khalichi.aqm.data.Aircraft;
-import com.khalichi.aqm.manager.AQMProcessor;
+import com.khalichi.aqm.processor.AQMProcessor;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -23,7 +23,7 @@ import static com.khalichi.aqm.data.Aircraft.AircraftSize;
 import static com.khalichi.aqm.data.Aircraft.AircraftType;
 
 /**
- * REST resource for {@link com.khalichi.aqm.manager.AQMProcessor} operations.  Incorporates Swagger REST API documentation.
+ * REST resource for {@link com.khalichi.aqm.processor.AQMProcessor} operations.  Incorporates Swagger REST API documentation.
  * @author Keivan Khalichi
  * @since Jul 01, 2017
  */

@@ -4,7 +4,7 @@ import java.util.List;
 import com.khalichi.aqm.data.Aircraft;
 import com.khalichi.aqm.framework.cxf.CustomSwagger2Feature;
 import javax.ws.rs.core.Response;
-import com.khalichi.aqm.manager.AQMProcessor;
+import com.khalichi.aqm.processor.AQMProcessor;
 import org.apache.cxf.feature.Features;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

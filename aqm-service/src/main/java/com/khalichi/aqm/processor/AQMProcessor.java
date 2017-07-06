@@ -1,4 +1,4 @@
-package com.khalichi.aqm.manager;
+package com.khalichi.aqm.processor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
