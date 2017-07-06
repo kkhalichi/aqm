@@ -51,7 +51,7 @@ public interface AQMResource {
     @POST
     @Path("/enq/bulk")
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.APPLICATION_JSON)
     @ApiOperation(value = "Enqueue aircrafts into the system, in bulk.")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "aircraftList", value = "List of Aircraft", dataType = "java.util.List", required = true, paramType = "body")

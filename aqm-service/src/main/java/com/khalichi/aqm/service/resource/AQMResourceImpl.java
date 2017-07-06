@@ -3,6 +3,7 @@ package com.khalichi.aqm.service.resource;
 import java.util.List;
 import com.khalichi.aqm.data.Aircraft;
 import com.khalichi.aqm.framework.cxf.CustomSwagger2Feature;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import com.khalichi.aqm.processor.AQMProcessor;
 import org.apache.cxf.feature.Features;
@@ -47,7 +48,7 @@ public class AQMResourceImpl implements AQMResource {
         Response aReturnValue;
 
         if ((theAircraftType == null) || (theAircraftSize == null)) {
-            aReturnValue = Response.notModified("One or both parameters are null.").build();
+            aReturnValue = Response.notModified("One or both parameters are null.").type(MediaType.TEXT_PLAIN).build();
         }
         else {
             try {
@@ -72,12 +73,12 @@ public class AQMResourceImpl implements AQMResource {
         Response aReturnValue;
 
         if (CollectionUtils.isEmpty(theAircraftList)) {
-            aReturnValue = Response.notModified("List of aircraft is null or empty.").build();
+            aReturnValue = Response.notModified("List of aircraft is null or empty.").type(MediaType.TEXT_PLAIN).build();
         }
         else {
             try {
                 this.aqmProcessor.enqueue(theAircraftList);
-                aReturnValue = Response.ok("Bulk enqueue of aircraft is complete.").build();
+                aReturnValue = Response.ok(this.aqmProcessor.dump()).build();
             }
             catch (Exception e) {
                 aReturnValue = Response.notModified(e.getMessage()).build();
@@ -94,7 +95,7 @@ public class AQMResourceImpl implements AQMResource {
         try {
             final Aircraft anAircraft = this.aqmProcessor.dequeue();
             if (anAircraft == null) {
-                aReturnValue = Response.ok("There are no aircraft in the system.").build();
+                aReturnValue = Response.notModified("There are no aircraft in the system.").type(MediaType.TEXT_PLAIN).build();
             }
             else {
                 aReturnValue = Response.ok(anAircraft).build();
