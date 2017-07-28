@@ -11,7 +11,7 @@
 
     <name>aqm-parent</name>
     <description>Air Traffic Control Queue Management</description>
-    <url>https://github.com/kkhalichi/atcq</url>
+    <url>https://github.com/kkhalichi/aqm</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
